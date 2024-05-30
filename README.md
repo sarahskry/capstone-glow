@@ -182,4 +182,5 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 - Ability to see where you can stream said movie on list
 - Ability to display movies based on chosen streaming service
 - Ability to add other users from your contacts and share what your watching. Incorporate in app messaging
+- After logging in, the user can choose between TV and Movies
 
