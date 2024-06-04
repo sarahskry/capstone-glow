@@ -9,13 +9,17 @@ const router = express.Router();
 /******************* REGISTER *******************/
 router.post('/register', async (req, res) => {
     // grab name, username, email and pass
-    const { name, username, email, password } = req.body;
+    const { name, email, username, password } = req.body;
+
+    if (!name || !email || !username || !password) {
+        return res.status(400).send("All fields are required");
+    }
 
     // encrypt password
     const encrypted = bcrypt.hashSync(password);
 
     try {
-        await knex('users').insert({ name, username, email, password: encrypted });
+        await knex('users').insert({ name, email, username, password: encrypted });
         res.status(201).json({ success: true });
     } catch (err) {
         console.log(err.code);
