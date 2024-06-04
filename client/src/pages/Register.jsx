@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Register() {
     const [ registered, setRegistered ] = useState(false);
@@ -47,6 +48,9 @@ export default function Register() {
                 {registered && <div>Registration successful, you can login!</div>}
                 {error && <div>{error}</div>}
             </form>
+
+            <p>Already have an account?</p>
+            <Link to="/login">Login</Link>
         </>
     );
 }
