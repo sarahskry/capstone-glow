@@ -24,7 +24,7 @@ export default function Login({ setToken }) {
 
                 // payload has the token
                 try {
-                    const { data } = await axios.post(`${import.meta.env.VITE_LOCALHOST}login}`, { username, password });
+                    const { data } = await axios.post(`${import.meta.env.VITE_LOCALHOST}login`, { username, password });
                     const { token } = data;
 
                     // set in localstorage
