@@ -3,6 +3,7 @@ import Register from "./pages/Register";
 import './App.scss';
 import { useState } from "react";
 import Login from "./pages/Login";
+import UserDashboard from "./pages/Dashboard";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login setToken={setToken} />} />
+        <Route path="/dashboard" element={<UserDashboard />} />
       </Routes>
     </BrowserRouter>
    
