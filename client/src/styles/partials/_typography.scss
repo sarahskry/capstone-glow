@@ -1,43 +1,44 @@
+@use '../../styles/partials/variables' as *;
 
 /* Mitr - ExtraLight */
 @font-face {
     font-family: $primary-font;
-    src: url("/src/assets/font/Mitr-ExtraLight.ttf");
+    src: url("/src/assets/fonts/Mitr-ExtraLight.ttf");
     font-weight: $extralight-weight;
 }
 
 /* Mitr - Light */
 @font-face {
     font-family: $primary-font;
-    src: url("/src/assets/font/Mitr-Light.ttf");
+    src: url("/src/assets/fonts/Mitr-Light.ttf");
     font-weight: $light-weight;
 }
 
 /* Mitr - Regular */
 @font-face {
     font-family: $primary-font;
-    src: url("/src/assets/font/Mitr-Light.ttf");
+    src: url("/src/assets/fonts/Mitr-Light.ttf");
     font-weight: $regular-weight;
 }
 
 /* Mitr - Medium */
 @font-face {
     font-family: $primary-font;
-    src: url("/src/assets/font/Mitr-Medium.ttf");
+    src: url("/src/assets/fonts/Mitr-Medium.ttf");
     font-weight: $medium-weight;
 }
 
 /* Poppins - ExtraLight */
 @font-face {
     font-family: $secondary-font;
-    src: url("/src/assets/font/Poppins-ExtraLight.ttf");
+    src: url("/src/assets/fonts/Poppins-ExtraLight.ttf");
     font-weight: $extralight-weight;
 }
 
 /* Poppins - ExtraLightItalic */
 @font-face {
     font-family: $secondary-font;
-    src: url("/src/assets/font/Poppins-ExtraLightItalic.ttf");
+    src: url("/src/assets/fonts/Poppins-ExtraLightItalic.ttf");
     font-style: italic;
     font-weight: $extralight-weight;
 }
@@ -45,14 +46,14 @@
 /* Poppins - Light */
 @font-face {
     font-family: $secondary-font;
-    src: url("/src/assets/font/Poppins-Light.ttf");
+    src: url("/src/assets/fonts/Poppins-Light.ttf");
     font-weight: $light-weight;
 }
 
 /* Poppins - LightItalic */
 @font-face {
     font-family: $secondary-font;
-    src: url("/src/assets/font/Poppins-LightItalic.ttf");
+    src: url("/src/assets/fonts/Poppins-LightItalic.ttf");
     font-style: italic;
     font-weight: $light-weight;
 }
