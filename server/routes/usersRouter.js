@@ -94,14 +94,12 @@ router.post('/login', async (req, res) => {
 // it will add the 'user' property to the 'req' object
 router.get('/dashboard', authorize, async (req, res) => {
 
-    const lists = await knex('movielists').where({user_id: req.user.id});
-
+    const lists = await knex('movielists').where({ user_id: req.user.id });
 
     const response = {
         user: req.user,
         lists
     }
-
     
     res.json(response);
 });
