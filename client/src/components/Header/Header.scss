@@ -1,0 +1,30 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+
+.header {
+    display: flex;
+
+    &__title {
+        font-family: $primary-font;
+        font-weight: $medium-weight;
+    }
+
+    &__logo {
+        width: 3rem;
+    }
+}
+
+.usernav {
+
+    &__list {
+        display: flex;
+        list-style: none;
+        
+        &--item {
+            width: 12rem;
+        } 
+    }
+
+}
+
