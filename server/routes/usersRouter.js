@@ -19,7 +19,23 @@ router.post('/register', async (req, res) => {
     const encrypted = bcrypt.hashSync(password);
 
     try {
-        await knex('users').insert({ name, email, username, password: encrypted });
+        const [userId] = await knex('users').insert({
+            name, 
+            email,
+            username,
+            password: encrypted,
+            created_at: new Date(),
+            updated_at: new Date()
+        }).returning('id');
+
+        // Create default 'watch' list for the new user
+        await knex('movielists').insert({
+            list_title: 'watched',
+            user_id: userId,
+            created_at: new Date(),
+            updated_at: new Date()
+        });
+
         res.status(201).json({ success: true });
     } catch (err) {
         console.log(err.code);
@@ -51,7 +67,22 @@ router.post('/login', async (req, res) => {
         if (!bcrypt.compareSync(password, user.password)) {
             return res.status(400).send("username or password is incorrect");
         }
-    
+        
+        // Check if the 'watch' list exists for the user
+        const watchedList = await knex('movielists')
+            .where({ list_title: 'watched', user_id: user.id })
+            .first();
+
+        if (!watchedList) {
+            // If the default watched list doesn't exist, create it
+            await knex('movielists').insert({
+                list_title: 'watched',
+                user_id: user.id,
+                created_at: new Date(),
+                updated_at: new Date()
+            });
+        }
+
         // generate token, we are encoding the username in the token that will be decoded later
         const token = jwt.sign({ username: user.username }, process.env.SECRET);
     
