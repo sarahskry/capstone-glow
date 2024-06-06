@@ -1,5 +1,3 @@
-const { v4: uuidv4 } = require('uuid');
-
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
@@ -8,8 +6,7 @@ exports.up = function(knex) {
     return knex.schema
     .createTable('ratings', (table) => {
         table.increments('id').primary();
-        table.integer('user_id').unsigned().notNullable().references('id').inTable('users').onDelete('CASCADE');
-        table.uuid('list_id').notNullable().references('id').inTable('movielists').onDelete('CASCADE');
+        table.integer('list_id').notNullable().unsigned().references('id').inTable('movielists').onDelete('CASCADE');
         table.string('movie_id').notNullable();
         table.boolean('love').notNullable();
         table.boolean('love_to_hate').notNullable();

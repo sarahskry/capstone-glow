@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "migrate": "npx knex migrate:latest",
-    "migrate:down": "npx knex migrate:down",
-    "migration:rollback": "npx knex migrate:rollback",
-    "seed": "npx knex seed:run",
+    "migrate": "knex migrate:latest",
+    "migrate:down": "knex migrate:down",
+    "migration:rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
     "start": "node --watch index.js"
   },
   "author": "",

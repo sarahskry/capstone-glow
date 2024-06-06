@@ -19,7 +19,19 @@ router.post('/register', async (req, res) => {
     const encrypted = bcrypt.hashSync(password);
 
     try {
-        await knex('users').insert({ name, email, username, password: encrypted });
+        const [userId] = await knex('users').insert({
+            name, 
+            email,
+            username,
+            password: encrypted,
+        })
+
+        // Create default 'watch' list for the new user
+        await knex('movielists').insert({
+            list_title: 'Watched',
+            user_id: userId,
+        });
+
         res.status(201).json({ success: true });
     } catch (err) {
         console.log(err.code);
@@ -51,7 +63,22 @@ router.post('/login', async (req, res) => {
         if (!bcrypt.compareSync(password, user.password)) {
             return res.status(400).send("username or password is incorrect");
         }
-    
+        
+        // // Check if the 'watch' list exists for the user
+        // const watchedList = await knex('movielists')
+        //     .where({ list_title: 'watched', user_id: user.id })
+        //     .first();
+
+        // if (!watchedList) {
+        //     // If the default watched list doesn't exist, create it
+        //     await knex('movielists').insert({
+        //         list_title: 'watched',
+        //         user_id: user.id,
+        //         created_at: new Date(),
+        //         updated_at: new Date()
+        //     });
+        // }
+
         // generate token, we are encoding the username in the token that will be decoded later
         const token = jwt.sign({ username: user.username }, process.env.SECRET);
     
@@ -65,9 +92,27 @@ router.post('/login', async (req, res) => {
 /******************* MIDDLEWARE/Dashboard *******************/
 // call the 'authorize' as middleware function
 // it will add the 'user' property to the 'req' object
-router.get('/dashboard', authorize, (req, res) => {
-    res.json(req.user);
+router.get('/dashboard', authorize, async (req, res) => {
+
+    const lists = await knex('movielists').where({ user_id: req.user.id });
+
+    const response = {
+        user: req.user,
+        lists
+    }
+    
+    res.json(response);
 });
+
+router.get('/list/:id', authorize, async (req, res) => {
+
+    const ratings = await knex('ratings').where({list_id: req.params.id});
+
+    // make movie API calls for the movie data, and send...
+    
+    res.json(ratings);
+});
+
 
 async function authorize(req, res, next) {
     const { authorization } = req.headers;
