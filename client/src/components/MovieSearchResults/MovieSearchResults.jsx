@@ -1,24 +1,5 @@
 import SearchResultCard from "../SearchResultCard/SearchResultCard";
 
-// const MovieSearchResults = ({ results }) => {
-//   return (
-//     <ul className="moviesearch-list">
-//       {results.length > 0 ? (
-//         results.map((movieSearchResult, index) => (
-//           <li className="" key={index}>
-//             <p>{movieSearchResult.title}</p>
-//             <p>{movieSearchResult.overview}</p>
-//             <p>{movieSearchResult.release_date}</p>
-//           </div>
-//         ))
-//       ) : (
-//         <p>No Movies found</p>
-//       )}
-//     </ul>
-//   );
-// };
-
-// export default MovieSearchResults;
 
 const MovieSearchResults = ({ results }) => {
     return (
