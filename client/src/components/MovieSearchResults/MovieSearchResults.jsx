@@ -1,21 +1,44 @@
-import React from "react";
+import SearchResultCard from "../SearchResultCard/SearchResultCard";
+
+// const MovieSearchResults = ({ results }) => {
+//   return (
+//     <ul className="moviesearch-list">
+//       {results.length > 0 ? (
+//         results.map((movieSearchResult, index) => (
+//           <li className="" key={index}>
+//             <p>{movieSearchResult.title}</p>
+//             <p>{movieSearchResult.overview}</p>
+//             <p>{movieSearchResult.release_date}</p>
+//           </div>
+//         ))
+//       ) : (
+//         <p>No Movies found</p>
+//       )}
+//     </ul>
+//   );
+// };
+
+// export default MovieSearchResults;
 
 const MovieSearchResults = ({ results }) => {
-  return (
-    <div>
-      {results.length > 0 ? (
-        results.map((movieSearchResult, index) => (
-          <div key={index}>
-            <p>{movieSearchResult.title}</p>
-            <p>{movieSearchResult.overview}</p>
-            <p>{movieSearchResult.release_date}</p>
-          </div>
-        ))
-      ) : (
-        <p>No Movies found</p>
-      )}
-    </div>
-  );
-};
-
-export default MovieSearchResults;
+    return (
+      <ul className="moviesearch-list">
+        {results.length > 0 ? (
+          results.map((movieSearchResult, index) => (
+            <li className="moviesearch-list__item" key={index}>
+                <SearchResultCard 
+                    poster_path={movieSearchResult.poster_path}
+                    title={movieSearchResult.title}
+                    overview={movieSearchResult.overview}
+                    release_date={movieSearchResult.release_date}
+                />
+            </li>
+          ))
+        ) : (
+          <p>No Movies found</p>
+        )}
+      </ul>
+    );
+  };
+  
+  export default MovieSearchResults;
