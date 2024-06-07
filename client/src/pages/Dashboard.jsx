@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { MovieSearch } from "../components/MovieSearch/MovieSearch";
 import MovieSearchResults from "../components/MovieSearchResults/MovieSearchResults";
-import config from "../config";
+
 
 export default function UserDashboard({ token }) {
   const [user, setUser] = useState(null);
@@ -47,11 +47,12 @@ export default function UserDashboard({ token }) {
     if (!query) 
     return;
 
-    const apiUrl = `${config.BASE_URL}api_key=${config.API_KEY}${config.SEARCH_KEY}${query}`;
+    const apiUrl = `${import.meta.env.VITE_BASE_URL}?api_key=${import.meta.env.VITE_API_KEY}&query=${query}`;
 
     try {
         const response = await axios.get(apiUrl);
         setResults(response.data.results || []);
+        console.log(response.data);
     } catch (err) {
         console.error(`Error fetching the movie data:`, err);
         setResults([]);
