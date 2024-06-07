@@ -2,11 +2,15 @@ import Header from "../components/Header/Header";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { MovieSearch } from "../components/MovieSearch/MovieSearch";
+import MovieSearchResults from "../components/MovieSearchResults/MovieSearchResults";
+import config from "../config";
 
 export default function UserDashboard({ token }) {
   const [user, setUser] = useState(null);
   const [lists, setLists] = useState([]);
   const [ratings, setRatings] = useState([]);
+  const [results, setResults] = useState([]);
   // const [currentList, setCurrentList] = useState(null)
 
   useEffect(() => {
@@ -39,6 +43,21 @@ export default function UserDashboard({ token }) {
     }
   }
 
+  const fetchResults = async (query) => {
+    if (!query) 
+    return;
+
+    const apiUrl = `${config.BASE_URL}api_key=${config.API_KEY}${config.SEARCH_KEY}${query}`;
+
+    try {
+        const response = await axios.get(apiUrl);
+        setResults(response.data.results || []);
+    } catch (err) {
+        console.error(`Error fetching the movie data:`, err);
+        setResults([]);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -47,7 +66,17 @@ export default function UserDashboard({ token }) {
           <h3 className="userdash-greeting">
             Hi {user.username}, what are you watching?
           </h3>
+
+          <div className="moviesearch-container">
+            <MovieSearch onSearch={fetchResults}/>
+          </div>
+
+          <div className="search-results">
+            <MovieSearchResults results={results} />
+          </div>
+  
           <div>You have {lists.length} lists.</div>
+
           <div>
             {lists.map((list) => {
               return (
@@ -75,7 +104,7 @@ export default function UserDashboard({ token }) {
           <h2>Ratings</h2>
 
           {ratings.map((rating) => {
-            console.log(rating)
+            console.log(rating);
             return <div key={rating.id}>{rating.movie_id}</div>;
           })}
         </>

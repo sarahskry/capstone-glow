@@ -9,6 +9,7 @@ import UserDashboard from "./pages/Dashboard";
 function App() {
   // token
   const [token, setToken] = useState(localStorage.getItem('token'));
+
   return (
     <BrowserRouter>
       <Routes>
