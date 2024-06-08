@@ -1,0 +1,96 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+
+#root {
+   // margin: auto 0;
+}
+
+body {
+    background-color: $global-offwhite;
+    font-family: $secondary-font;
+    color: $global-text;
+}
+
+.reg-content {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.reg-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.reglogin-title {
+    animation: glow 1s ease-in-out infinite alternate;
+    color: $primary-button;
+    font-family: $primary-font;
+    font-size: 3rem;
+    font-weight: $medium-weight;
+}
+
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #14ccfa, 0 0 40px #14ccfa, 0 0 50px #14ccfa, 0 0 60px #14ccfa, 0 0 70px #14ccfa;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #a4e5f5, 0 0 40px #a4e5f5, 0 0 50px #a4e5f5, 0 0 60px #a4e5f5, 0 0 70px #a4e5f5, 0 0 80px #a4e5f5;
+    }
+  }
+
+.regform {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    &__labelinput-pair {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    &--label {
+        margin-bottom: .2rem;
+    }
+
+    &--input {
+        padding: .5rem;
+    }
+}
+
+.reg-cta {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-image {
+    aspect-ratio: 1/2;
+    border-right: 2px solid $error;
+    border-left: 2px solid $primary-button;
+    width: 32%;
+}
+
+.logo-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    padding-bottom: 3rem;
+    width: 40%;
+}
+
+.reglogin-logo {
+    padding-left: 1rem;
+    width: 7rem;
+}
+
+.loginbtn-container {
+    padding-right: 3rem;
+}
