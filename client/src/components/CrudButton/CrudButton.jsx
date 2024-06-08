@@ -1,13 +1,13 @@
-import "./Button.scss";
+import "./CrudButton.scss";
 
-export default function AddButton(props) {
+export default function CrudButton({ type = "button", onClick, children }) {
   return (
     <button
-      className="button"
-      type={props.type}
-      onClick={props.onClick}
+      className="crud-button"
+      type={type}
+      onClick={onClick}
     >
-      {props.children}
+      {children}
     </button>
   );
 }
