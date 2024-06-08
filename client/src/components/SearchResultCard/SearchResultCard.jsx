@@ -6,11 +6,11 @@ function SearchResultCard({ poster_path, title, overview, release_date }) {
   const posterBaseUrl = `${import.meta.env.VITE_IMAGE_BASE_URL}`;
   
    //POST request to add movie from search to Watched List
-   const handleAddClick = async () => {
-    try {
+  //  const handleAddClick = async () => {
+  //   try {
 
-    }
-   }
+  //   }
+  //  }
 
   return (
 
@@ -20,7 +20,7 @@ function SearchResultCard({ poster_path, title, overview, release_date }) {
           <h4 className="searchresult-card-details__title">{title}</h4>
           <h4 className="searchresult-card-details__release-date">Release Date: {release_date}</h4>
           <p className="searchresult-card-details__overview">{overview}</p>
-          <CrudButton onClick={handleAddClick}>+ Add to Watched List</CrudButton>
+          {/* <CrudButton onClick={handleAddClick}>+ Add to Watched List</CrudButton> */}
         </div>
       </div>
 
