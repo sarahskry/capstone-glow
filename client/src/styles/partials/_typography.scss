@@ -1,5 +1,12 @@
 @use '../../styles/partials/variables' as *;
 
+/* Playfair Display - Medium */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url("/src/assets/fonts/PlayfairDisplay-Medium.ttf");
+    font-weight: 500;
+}
+
 /* Mitr - ExtraLight */
 @font-face {
     font-family: $primary-font;

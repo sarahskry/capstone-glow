@@ -4,7 +4,7 @@ import './App.scss';
 import { useState } from "react";
 import Login from "./pages/Login/Login";
 import UserDashboard from "./pages/Dashboard/Dashboard";
-
+import Splash from "./pages/Splash/Splash";
 
 function App() {
   // token
@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
+        <Route path="/" element={<Splash />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/dashboard" element={<UserDashboard token={token}/>} />
