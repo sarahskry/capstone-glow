@@ -1,4 +1,4 @@
-import "./Register/Register.scss";
+import './Register.scss';
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -56,7 +56,7 @@ export default function Register() {
                 Name
               </label>
               <input
-                className="regform__labelinput-pair--label"
+                className="regform__labelinput-pair--input"
                 name="name"
                 id="name"
                 placeholder="name"
@@ -72,7 +72,7 @@ export default function Register() {
                 Username{" "}
               </label>
               <input
-                className="regform__labelinput-pair--label"
+                className="regform__labelinput-pair--input"
                 name="username"
                 id="username"
                 placeholder="username"
@@ -104,7 +104,7 @@ export default function Register() {
                 Password
               </label>
               <input
-                className="regform__labelinput-pair--label"
+                className="regform__labelinput-pair--input"
                 name="password"
                 id="password"
                 placeholder="password"
@@ -123,16 +123,16 @@ export default function Register() {
         <div className="loginbtn-container">
             <p>Already have an account?</p>
             <Link to="/login">
-            <button>Login</button>
+            <button className="loginbutton">Login</button>
             </Link>
         </div>
-{/* Everything from title to Reg button**************************************************** */}
+        {/* Everything from title to Reg button**************************************************** */}
 
-        <img
+        {/* <img
           src="../src/assets/images/audience.jpeg"
           alt=""
           className="login-image"
-        />
+        /> */}
       </div>
     </>
   );

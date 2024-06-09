@@ -1,0 +1,26 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+
+.loginform {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    &__labelinput-pair {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        
+        &--label {
+            margin-bottom: .2rem;
+        }
+    
+        &--input {
+            background-color: $lightbkgd;
+            border: 1px solid $dividers-outlines;
+            border-radius: 999px;
+            padding: 0.8rem .35rem;
+        }
+    }
+}

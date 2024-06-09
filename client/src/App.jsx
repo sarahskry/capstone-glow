@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Register from "./pages/Register";
+import Register from "./pages/Register/Register";
 import './App.scss';
 import { useState } from "react";
-import Login from "./pages/Login";
-import UserDashboard from "./pages/Dashboard";
+import Login from "./pages/Login/Login";
+import UserDashboard from "./pages/Dashboard/Dashboard";
 
 
 function App() {
