@@ -32,3 +32,26 @@
       box-shadow: 0 0 20px #fff, 0 0 30px $error, 0 0 40px $error, 0 0 50px $error, 0 0 60px $error, 0 0 70px $error, 0 0 80px $error;
     }
 }
+
+.splash-container__redirect {
+    position: relative;
+    left: 75%;
+    top: 67%;
+}
+
+.finger-icon {
+    left: 6rem;
+    position: relative;
+    width: 8%;
+}
+
+.sign {
+    color: #FFF;
+    cursor: pointer;
+    font-family: 'Playfair Display';
+    font-size: 1.5rem;
+    font-weight: 500;
+    position: absolute;
+    text-transform: uppercase;
+    top: -0.625rem;
+}

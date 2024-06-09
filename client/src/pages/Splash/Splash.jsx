@@ -1,29 +1,21 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Splash.scss';
 import { useEffect } from 'react';
 
 
 export default function Splash() {
 
-    const navigate = useNavigate();
-
-    // useEffect(() => {
-    //     // setting timeout to navigate to reg page after a few seconds
-    //     const timer = setTimeout(() => {
-    //         navigate("/register"); 
-    //     }, 5000); // after 5 seconds
-
-    //     // don't want to timer to keep going, so we need to remove
-    //     return () => clearTimeout(timer);
-    // }, [navigate]);
-
     return (
 
        <>
        <div className="splash-container">
-            <div className="glowing-rectangle">
-                
-            </div>
+            <div className="glowing-rectangle"></div>
+            <Link to="/register">
+                <div className="splash-container__redirect">
+                    <h3 className="sign">Glow this way</h3>
+                    <img src="../../src/assets/icons/noun-right.svg" alt="hand with finger pointing to the right" className="finger-icon" />
+                </div>
+            </Link>
        </div>
        </>
       
