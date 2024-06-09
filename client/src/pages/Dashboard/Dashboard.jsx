@@ -1,9 +1,9 @@
-import Header from "../components/Header/Header";
+import Header from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { MovieSearch } from "../components/MovieSearch/MovieSearch";
-import MovieSearchResults from "../components/MovieSearchResults/MovieSearchResults";
+import { MovieSearch } from "../../components/MovieSearch/MovieSearch";
+import MovieSearchResults from "../../components/MovieSearchResults/MovieSearchResults";
 
 
 export default function UserDashboard({ token }) {
