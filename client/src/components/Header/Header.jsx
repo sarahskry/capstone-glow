@@ -1,5 +1,5 @@
 import './Header.scss';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import { User } from "../User/User"
 
@@ -15,7 +15,7 @@ function Header() {
                 <ul className="usernav__list">
                     <li className="usernav__list--item">Watched</li>
                     {/* <li className="usernav__list--item">To Watch</li> */}
-                    <li className="usernav__list--item">Lists</li>
+                    <NavLink to='/lists'><li className="usernav__list--item">Lists</li></NavLink>
                 </ul>
             </nav>
 

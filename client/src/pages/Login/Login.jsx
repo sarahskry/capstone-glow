@@ -87,6 +87,11 @@ export default function Login({ setToken }) {
             {error && <div>{error}</div>}
           </form>
         </div>
+        <img
+          src="../src/assets/images/audience.jpeg"
+          alt=""
+          className="login-image"
+        />
       </div>
     </>
   );

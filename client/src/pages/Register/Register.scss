@@ -5,11 +5,11 @@
 
 body {
     background-color: $global-offwhite;
-    background-image: url("../src/assets/images/audience.jpeg");
-    background-position: contain;
-    background-position-x: right;
-    background-repeat: no-repeat;
-    background-size: 40vw 100vh;
+    // background-image: url("../src/assets/images/audience.jpeg");
+    // background-position: contain;
+    // background-position-x: right;
+    // background-repeat: no-repeat;
+    // background-size: 40vw 100vh;
     font-family: $secondary-font;
     color: $global-text;
 }
@@ -75,27 +75,29 @@ body {
 }
 
 .login-image {
-    aspect-ratio: 1/2;
+    aspect-ratio: 1 / 2;
     background-color: rgba(0, 0, 0, 0);
-    border: 1px solid $error;
+    border: 1px solid #FA1414;
     object-fit: cover;
-    outline: 0;
+    left: 55%;
     padding: 5px 10px 5px;
-    position: relative;
-    width: 32%;
+    position: absolute;
+    top: 0%;
+    width: 45%;
+    height: 100vh;
 }
 
-.login-image::after {
-  content: "";
-  background-color: $error;
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  height: 100%;
-  top: 7px;
-  left: 7px;
-  transition: 0.2s;
-}
+// .login-image::after {
+//   content: "";
+//   background-color: $error;
+//   width: 100%;
+//   z-index: -1;
+//   position: absolute;
+//   height: 100%;
+//   top: 7px;
+//   left: 7px;
+//   transition: 0.2s;
+// }
 
 .logo-container {
     align-items: center;

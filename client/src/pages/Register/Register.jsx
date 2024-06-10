@@ -128,11 +128,11 @@ export default function Register() {
         </div>
         {/* Everything from title to Reg button**************************************************** */}
 
-        {/* <img
+        <img
           src="../src/assets/images/audience.jpeg"
           alt=""
           className="login-image"
-        /> */}
+        />
       </div>
     </>
   );

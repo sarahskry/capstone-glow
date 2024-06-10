@@ -92,6 +92,18 @@ router.post('/login', async (req, res) => {
     }
 });
 
+
+/******************* LISTS MOVIES *******************/
+router.get('/lists', async (req, res) => {
+    try {
+        const lists = await knex('movielists').select('*');
+        res.json({ lists });
+    } catch (err) {
+        res.status(500).json({ err: "Failed to fetch lists" });
+    }
+});
+
+
 // /******************* MIDDLEWARE/Dashboard *******************/
 // // call the 'authorize' as middleware function
 // // it will add the 'user' property to the 'req' object
