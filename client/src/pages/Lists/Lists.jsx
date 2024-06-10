@@ -15,12 +15,15 @@ export default function Lists({ token }) {
 
   async function fetchLists() {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_LOCALHOST}lists`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setLists(response.data.lists);
+      const response = await axios.get(
+        `${import.meta.env.VITE_LOCALHOST}watched/lists`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setLists(response.data);
     } catch (err) {
       console.error("Error fetching lists", err);
     }
@@ -29,7 +32,7 @@ export default function Lists({ token }) {
   async function fetchMovies(listId) {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_LOCALHOST}watched/list/${listId}`,
+        `${import.meta.env.VITE_LOCALHOST}watched/lists/${listId}/movies`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -45,7 +48,9 @@ export default function Lists({ token }) {
 
   return (
     <div>
+      <Header />
       <h2>Your Movie Lists</h2>
+      <div>You have {lists.length} lists.</div>
       {lists.map((list) => (
         <div key={list.id} onClick={() => fetchMovies(list.id)}>
           {list.list_title}
