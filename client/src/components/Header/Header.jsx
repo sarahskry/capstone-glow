@@ -13,7 +13,7 @@ function Header() {
 
             <nav className="usernav">
                 <ul className="usernav__list">
-                    <li className="usernav__list--item">Watched</li>
+                    <NavLink to='/watched'><li className="usernav__list--item">Watched</li></NavLink>
                     {/* <li className="usernav__list--item">To Watch</li> */}
                     <NavLink to='/lists'><li className="usernav__list--item">Lists</li></NavLink>
                 </ul>
