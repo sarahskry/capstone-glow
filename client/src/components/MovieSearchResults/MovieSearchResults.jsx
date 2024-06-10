@@ -2,6 +2,7 @@ import "./MovieSearchResults.scss";
 import SearchResultCard from "../SearchResultCard/SearchResultCard";
 
 
+
 const MovieSearchResults = ({ results }) => {
     return (
       <ul className="moviesearch-list">

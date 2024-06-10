@@ -2,15 +2,17 @@ import CrudButton from "../CrudButton/CrudButton";
 import "./SearchResultCard.scss";
 import axios from "axios";
 
-function SearchResultCard({ poster_path, title, overview, release_date }) {
+
+function SearchResultCard({ poster_path, title, overview, release_date, movie_id }) {
   const posterBaseUrl = `${import.meta.env.VITE_IMAGE_BASE_URL}`;
 
   //POST request to add movie from search to Watched List
   const handleAddClick = async () => {
     try {
+      const token = localStorage.getItem('token');
       const response = await axios.post(
         `${import.meta.env.VITE_LOCALHOST}watched`,
-        { movieId: id },
+        { movie_id: movie_id },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       console.log(response.data);

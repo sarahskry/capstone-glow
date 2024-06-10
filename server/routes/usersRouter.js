@@ -3,8 +3,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const fs = require('node:fs');
 const knex = require('knex')(require('../knexfile'));
+const { authorize } = require('../middleware/authorize');
+
 
 const router = express.Router();
+
 
 /******************* REGISTER *******************/
 router.post('/register', async (req, res) => {
@@ -89,9 +92,9 @@ router.post('/login', async (req, res) => {
     }
 });
 
-/******************* MIDDLEWARE/Dashboard *******************/
-// call the 'authorize' as middleware function
-// it will add the 'user' property to the 'req' object
+// /******************* MIDDLEWARE/Dashboard *******************/
+// // call the 'authorize' as middleware function
+// // it will add the 'user' property to the 'req' object
 router.get('/dashboard', authorize, async (req, res) => {
 
     const lists = await knex('movielists').where({ user_id: req.user.id });
@@ -114,27 +117,27 @@ router.get('/list/:id', authorize, async (req, res) => {
 });
 
 
-async function authorize(req, res, next) {
-    const { authorization } = req.headers;
+// async function authorize(req, res, next) {
+//     const { authorization } = req.headers;
 
-    const token = authorization.split(' ')[1];
+//     const token = authorization.split(' ')[1];
 
-    try {
-        // decode the payload, get the 'username' back
-        // if something goes wrong here, it will cause an error and we'll be in the catch clause
-        const { username } = jwt.verify(token, process.env.SECRET);
+//     try {
+//         // decode the payload, get the 'username' back
+//         // if something goes wrong here, it will cause an error and we'll be in the catch clause
+//         const { username } = jwt.verify(token, process.env.SECRET);
 
-        // find the user with the matching username from the jwt payload
-        const user = await knex('users').select('id', 'username').where({ username }).first();
+//         // find the user with the matching username from the jwt payload
+//         const user = await knex('users').select('id', 'username').where({ username }).first();
 
-        // add the user to the req object
-        req.user = user;
+//         // add the user to the req object
+//         req.user = user;
 
-        // next
-        next();
-    } catch (err) {
-        res.status(400).json({ error: err });
-    }
-}
+//         // next
+//         next();
+//     } catch (err) {
+//         res.status(400).json({ error: err });
+//     }
+// }
 
 module.exports = router;
