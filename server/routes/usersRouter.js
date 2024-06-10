@@ -93,17 +93,6 @@ router.post('/login', async (req, res) => {
 });
 
 
-/******************* LISTS MOVIES *******************/
-router.get('/lists', async (req, res) => {
-    try {
-        const lists = await knex('movielists').select('*');
-        res.json({ lists });
-    } catch (err) {
-        res.status(500).json({ err: "Failed to fetch lists" });
-    }
-});
-
-
 // /******************* MIDDLEWARE/Dashboard *******************/
 // // call the 'authorize' as middleware function
 // // it will add the 'user' property to the 'req' object
@@ -128,28 +117,5 @@ router.get('/list/:id', authorize, async (req, res) => {
     res.json(ratings);
 });
 
-
-// async function authorize(req, res, next) {
-//     const { authorization } = req.headers;
-
-//     const token = authorization.split(' ')[1];
-
-//     try {
-//         // decode the payload, get the 'username' back
-//         // if something goes wrong here, it will cause an error and we'll be in the catch clause
-//         const { username } = jwt.verify(token, process.env.SECRET);
-
-//         // find the user with the matching username from the jwt payload
-//         const user = await knex('users').select('id', 'username').where({ username }).first();
-
-//         // add the user to the req object
-//         req.user = user;
-
-//         // next
-//         next();
-//     } catch (err) {
-//         res.status(400).json({ error: err });
-//     }
-// }
 
 module.exports = router;

@@ -1,4 +1,5 @@
 const express = require("express");
+const knex = require('knex')(require('../knexfile'));
 const router = express.Router();
 const { addMovieToWatchedList } = require('../controllers/moviescontroller');
 const { authorize } = require('../middleware/authorize');
@@ -9,16 +10,39 @@ router.post('/', authorize, (req, res) => {
 });
 
 //get movies in a list
-router.get('watched/list/:listId', async (req, res) => {
-    const { listId } = req.params;
+// router.get('watched/list/:listId', authorize, async (req, res) => {
+    
+//     try {
+//         const movies = await knex('ratings')
+//             .where({ list_id: req.params.id });
+//         res.json(movies);
+//     } catch (err) {
+//         res.status(500).json({ err: err.message });
+//     }
+// });
+
+// get user's lists
+router.get('/lists', authorize, async (req, res) => {
+    try {
+        // console.log('Fetching lists for user:', req.user.id);
+        const lists = await knex('movielists')
+        .where({ user_id: req.user.id });
+        // console.log('lists fetched:', lists);
+        res.json(lists);
+    } catch (err) {
+        // console.log(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+//get movies in a list
+router.get('/lists/:id/movies', authorize, async (req, res) => {
     try {
         const movies = await knex('ratings')
-            .join('movielists', 'ratings.list_id', 'movielists.id')
-            .select('ratings.movie_id')
-            .where('movielists.id', listId);
+            .where({ list_id: req.params.id });
         res.json(movies);
-    } catch (err) {
-        res.status(500).json({ err: "Failed to fetch movies" });
+    } catch {
+        res.status(500).json({ error: err.message });
     }
 });
 
