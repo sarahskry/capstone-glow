@@ -1,4 +1,6 @@
+import "./MovieSearchResults.scss";
 import SearchResultCard from "../SearchResultCard/SearchResultCard";
+
 
 
 const MovieSearchResults = ({ results }) => {
@@ -12,6 +14,7 @@ const MovieSearchResults = ({ results }) => {
                     title={movieSearchResult.title}
                     overview={movieSearchResult.overview}
                     release_date={movieSearchResult.release_date}
+                    movie_id={movieSearchResult.id} //retrieve movie id from api to be able to add to watched list
                 />
             </li>
           ))

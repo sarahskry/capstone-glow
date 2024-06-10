@@ -4,7 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const knex = require('knex');
 const knexConfig = require('./knexfile');
-
+const moviesRouter = require('./routes/moviesRouter');
 const usersRouter = require("./routes/usersRouter");
 
 // Initialize Knex with the development configuration
@@ -20,6 +20,7 @@ app.use(cors());
 
 // Routes
 app.use('/', usersRouter);
+app.use('/watched', moviesRouter);
 
 // Handle all other routes
 app.get('*', (req, res) => {

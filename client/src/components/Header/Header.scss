@@ -3,16 +3,25 @@
 @use '../../styles/partials/globals' as *;
 
 .header {
+    align-items: center;
     display: flex;
+    justify-content: space-evenly;
+    padding: 2rem 0;
 
     &__title {
+        color: $primary-button;
         font-family: $primary-font;
         font-weight: $medium-weight;
+        padding-right: 1rem;
     }
 
     &__logo {
         width: 3rem;
     }
+}
+
+.glow-container {
+    display: flex;
 }
 
 .usernav {
@@ -22,6 +31,7 @@
         list-style: none;
         
         &--item {
+            font-size: 1.2rem;
             width: 12rem;
         } 
     }
