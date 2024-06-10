@@ -4,6 +4,8 @@
 
 .header {
     align-items: center;
+    background-color: #F4F4F4;
+    border-bottom: 2px solid $primary-button;
     display: flex;
     justify-content: space-evenly;
     padding: 2rem 0;
@@ -11,12 +13,13 @@
     &__title {
         color: $primary-button;
         font-family: $primary-font;
+        font-size: 3rem;
         font-weight: $medium-weight;
         padding-right: 1rem;
     }
 
     &__logo {
-        width: 3rem;
+        width: 3.8rem;
     }
 }
 

@@ -5,7 +5,8 @@
 .usergreet-search {
     align-items: center;
     display: flex;
-    padding: 1rem 2rem;
+    justify-content: space-between;
+    padding: 3rem 10rem;
 
     &__greeting {
         padding-right: 3rem;
