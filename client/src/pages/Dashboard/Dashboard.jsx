@@ -1,3 +1,4 @@
+import "./Dashboard.scss";
 import Header from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -64,13 +65,15 @@ export default function UserDashboard({ token }) {
       <Header />
       {user ? (
         <>
-          <h3 className="userdash-greeting">
-            Hi {user.username}, what are you watching?
-          </h3>
-
-          <div className="moviesearch-container">
-            <MovieSearch onSearch={fetchResults}/>
-          </div>
+          <section className="usergreet-search">
+            <h2 className="usergreet-search__greeting">
+              Hi {user.username}, what are you watching?
+            </h2>
+            
+            <div className="usergreet-search__search">
+              <MovieSearch onSearch={fetchResults}/>
+            </div>
+          </section>
 
           <div className="search-results">
             <MovieSearchResults results={results} />
