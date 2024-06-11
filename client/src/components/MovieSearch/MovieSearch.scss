@@ -1,0 +1,10 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+
+.moviesearch__field {
+    background-color: $lightbkgd;
+    border: 1px solid $dividers-outlines;
+    border-radius: 999px;
+    padding: 0.8rem 5.35rem;
+}

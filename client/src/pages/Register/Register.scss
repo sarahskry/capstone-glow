@@ -1,0 +1,142 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/globals' as *;
+
+
+body {
+    background-color: $global-offwhite;
+    // background-image: url("../src/assets/images/audience.jpeg");
+    // background-position: contain;
+    // background-position-x: right;
+    // background-repeat: no-repeat;
+    // background-size: 40vw 100vh;
+    font-family: $secondary-font;
+    color: $global-text;
+}
+
+.reg-content {
+    align-items: center;
+    display: flex;
+    margin: 16rem 16rem;
+    width: 40%;
+}
+
+.reg-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.reglogin-title {
+    animation: glow 1s ease-in-out infinite alternate;
+    color: $primary-button;
+    font-family: $primary-font;
+    font-size: 3rem;
+    font-weight: $medium-weight;
+}
+
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #14ccfa, 0 0 40px #14ccfa, 0 0 50px #14ccfa, 0 0 60px #14ccfa, 0 0 70px #14ccfa;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #a4e5f5, 0 0 40px #a4e5f5, 0 0 50px #a4e5f5, 0 0 60px #a4e5f5, 0 0 70px #a4e5f5, 0 0 80px #a4e5f5;
+    }
+  }
+
+.regform {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    &__labelinput-pair {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        
+        &--label {
+            margin-bottom: .2rem;
+        }
+    
+        &--input {
+            background-color: $lightbkgd;
+            border: 1px solid $dividers-outlines;
+            border-radius: 999px;
+            padding: 0.8rem .35rem;
+        }
+    }
+}
+
+.reg-cta {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-image {
+    aspect-ratio: 1 / 2;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #FA1414;
+    object-fit: cover;
+    left: 55%;
+    padding: 5px 10px 5px;
+    position: absolute;
+    top: 0%;
+    width: 45%;
+    height: 100vh;
+}
+
+// .login-image::after {
+//   content: "";
+//   background-color: $error;
+//   width: 100%;
+//   z-index: -1;
+//   position: absolute;
+//   height: 100%;
+//   top: 7px;
+//   left: 7px;
+//   transition: 0.2s;
+// }
+
+.logo-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    padding-bottom: 1rem;
+    width: 40%;
+}
+
+.reglogin-logo {
+    padding-left: 1rem;
+    width: 7rem;
+}
+
+.loginbtn-container {
+    padding-right: 3rem;
+    padding-top: 11rem;
+}
+
+.regbutton, .loginbutton {
+      background: $primary-button;
+      border-radius: 999px;
+      box-shadow: $primary-button 0 0.625rem 1rem -0.625rem;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-family: $secondary-font;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      opacity: 1;
+      outline: 0 solid transparent;
+      padding: 0.5rem 3.3rem /*2.675rem*/;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: fit-content;
+      word-break: break-word;
+      border: 0;
+}
+
+

@@ -1,0 +1,20 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/variables' as *;
+
+.searchresult-card {
+    display: flex;
+    padding-bottom: 1rem;
+    width: 50%;
+
+    &__poster {
+        border-radius: 4px;
+        width: 25%;
+    }
+}
+
+.searchresult-card-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
