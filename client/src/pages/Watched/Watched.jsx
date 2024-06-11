@@ -20,7 +20,24 @@ export default function WatchedPage({ token }) {
                     },
                 }
             );
-            setMovies(response.data);
+
+            const movieDetails = [];
+
+            for (const movie of response.data) {
+                const movieId = movie.movie_id;
+
+                //get movie details like title for each movie id
+                const movieResponse = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}`, {
+                    params: {
+                        api_key: import.meta.env.VITE_API_KEY,
+                    },
+                });
+
+                // push the movie details to the array
+                movieDetails.push(movieResponse.data);
+            }
+            // setting movie titles
+            setMovies(movieDetails);
         } catch (err) {
             console.error("Error fetching watched movies", err);
         }
@@ -32,7 +49,7 @@ export default function WatchedPage({ token }) {
 
             <h3>All the movies you've watched</h3>
             {movies.map((movie) => (
-                <div key={movie.movie_id}>{movie.movie_id}</div>
+                <div key={movie.id}>{movie.title}</div>
             ))}
         </>
     );
