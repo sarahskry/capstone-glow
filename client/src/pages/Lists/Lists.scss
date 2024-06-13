@@ -1,0 +1,40 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/variables' as *;
+
+.lists-container {
+    padding: 4rem 10rem;
+}
+.active-list {
+  font-style: italic;
+}
+
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .movie-card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    width: 200px;
+  
+    &__poster {
+      width: 100%;
+      height: auto;
+    }
+  
+    &__details {
+      margin-top: 1rem;
+  
+      h3 {
+        margin: 0 0 0.5rem;
+      }
+  
+      p {
+        margin: 0 0 0.5rem;
+        font-size: 0.9rem;
+        color: #555;
+      }
+    }
+  }

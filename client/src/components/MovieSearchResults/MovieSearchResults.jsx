@@ -2,10 +2,13 @@ import "./MovieSearchResults.scss";
 import SearchResultCard from "../SearchResultCard/SearchResultCard";
 
 
-const MovieSearchResults = ({ results }) => {
+const MovieSearchResults = ({ results, searchExecuted }) => {
     return (
       <ul className="moviesearch-list">
-        {results.length > 0 ? (
+        {searchExecuted && results.length === 0 ? (
+          <p>No Movies found</p>
+          ) : (
+
           results.map((movieSearchResult, index) => (
             <li className="moviesearch-list__item" key={index}>
                 <SearchResultCard 
@@ -17,8 +20,6 @@ const MovieSearchResults = ({ results }) => {
                 />
             </li>
           ))
-        ) : (
-          <p>No Movies found</p>
         )}
       </ul>
     );

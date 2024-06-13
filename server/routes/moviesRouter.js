@@ -15,7 +15,8 @@ router.get('/', authorize, async (req, res) => {
     try {
         const watchedMovies = await knex('ratings')
             .select('movie_id')
-            .distinct(); // so if there is the same movie in two lists in only shows in the watched list once
+            .distinct() // so if there is the same movie in two lists in only shows in the watched list once
+            .where({user_id: req.user.id}); // make sure we're filtering withthe user id
             console.log(watchedMovies);
         res.json(watchedMovies);
     } catch (err) {
